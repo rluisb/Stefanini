@@ -30,16 +30,14 @@ public class ManipuladorDeArquivo {
 		String[] campos = linha.split("ç");
 		String id = campos[0];
 		
-		if (id.equals(Tipos.VENDEDOR.getTipo())){
-			Tipos.VENDEDOR.montaObjeto(campos);
+		if (id.equals(Tipos.VENDA.getTipo())){
+			String itens = campos[2];
+			String[] camposItem = itens.substring(1, itens.length()-1).split(",");
 			
+			for (String string : camposItem) {
+				System.out.println(string);
+			}
 		}
-		
-		if (id.equals(Tipos.EMPRESA.getTipo())){
-			Tipos.EMPRESA.montaObjeto(campos);
-			
-		}
-		
 		
 	}
 }
