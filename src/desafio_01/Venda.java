@@ -1,26 +1,25 @@
 package desafio_01;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 public class Venda {
 	
-	private String id;
+	private int idVenda;
 	private Vendedor vendedor;
 	private ArrayList<Item> itens = new ArrayList<Item>();
 	
-	public Venda(String id, Vendedor vendedor, ArrayList<Item> itens) {
-		this.id = id;
+	public Venda(int idVenda, Vendedor vendedor, ArrayList<Item> itens) {
+		this.idVenda = idVenda;
 		this.vendedor = vendedor;
 		this.itens = itens;
 	}
 
-	public String getId() {
-		return id;
+	public int getIdVenda() {
+		return idVenda;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setIdVenda(int idVenda) {
+		this.idVenda = idVenda;
 	}
 
 	public Vendedor getVendedor() {
@@ -38,6 +37,10 @@ public class Venda {
 	public void setItens(ArrayList<Item> itens) {
 		this.itens = itens;
 	}
+
+	
+	
+	
 	
 	
 	

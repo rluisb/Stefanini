@@ -2,27 +2,15 @@ package desafio_01;
 
 public class Vendedor {
 	
-	private String id;
 	private String nome;
 	private String cpf;
-	private String salario;
+	private double salario;
 	
 	
-	public Vendedor(String id, String nome, String cpf, String salario) {
-		this.id = id;
+	public Vendedor(String nome, String cpf, double salario) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.salario = salario;
-	}
-
-
-	public String getId() {
-		return id;
-	}
-
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 
@@ -46,12 +34,12 @@ public class Vendedor {
 	}
 
 
-	public String getSalario() {
+	public double getSalario() {
 		return salario;
 	}
 
 
-	public void setSalario(String salario) {
+	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 

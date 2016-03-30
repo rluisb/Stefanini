@@ -2,25 +2,16 @@ package desafio_01;
 
 public class Empresa {
 	
-	private String id;
 	private String cnpj;
 	private String nome;
 	private String ramo;
 	
-	public Empresa(String id, String cnpj, String nome, String ramo) {
-		this.id = id;
+	public Empresa(String cnpj, String nome, String ramo) {
 		this.cnpj = cnpj;
 		this.nome = nome;
 		this.ramo = ramo;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getCnpj() {
 		return cnpj;
