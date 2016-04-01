@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
@@ -24,27 +25,93 @@ public class Manipulador {
 	}
 	public void lerLinha(String linha) {
 		String[] campos = linha.split(" - - ");
-		TreeMap<String, Acesso> listaDeAcessos = new TreeMap<String, Acesso>();
-		 
-		int bandwidthPositionBegin;
-		int bandwidthPositionEnd;
-		 
+		TreeMap<String, Acesso> acessos = new TreeMap<String, Acesso>();
+		int totalBandwidth = 0;
+		Acesso acessoEscolhido;
+		
 		for (String string : campos) {
 			String[] simpleIp = campos[0].split(" - ");
 			String[] access = campos[1].split("] ");
-			Acesso acesso = new Acesso(simpleIp[1], access[0], access[1]);
-			listaDeAcessos.put(simpleIp[1], acesso);
+			String data = access[0].trim().substring(1, 17);
+			String[] getBandwidth = access[1].split(" ");
+			String typeFile;
+			String statusOk = "200";
 			
-			if(listaDeAcessos.get(simpleIp[1]).getAccess().contains(".png")){
-				if(listaDeAcessos.get(simpleIp[1]).getAccess().contains("200")){
-					bandwidthPositionBegin = listaDeAcessos.get(simpleIp[1]).getAccess().indexOf(".png")+18;
-					bandwidthPositionEnd = bandwidthPositionBegin + 8;
-					String[] getBanwidth = listaDeAcessos.get(simpleIp[1]).getAccess().substring(bandwidthPositionBegin, bandwidthPositionEnd).split(" ");
-					//System.out.println(getBanwidth[1]);
+			if(string.contains(statusOk)){
+				if(string.contains(".docx")){
+					typeFile = "docx";
+					acessoEscolhido = acessos.get(typeFile);
+					int banda = Integer.parseInt(getBandwidth[4]);
+					totalBandwidth = acessoEscolhido.getBanda() + banda;
+					acessos.put(typeFile, new Acesso(simpleIp[1], data, access[1], typeFile, totalBandwidth));
+					
+				}else if(string.contains(".txt")){
+					typeFile = "txt";
+					acessoEscolhido = acessos.get(typeFile);
+					int banda = Integer.parseInt(getBandwidth[4]);
+					totalBandwidth = acessoEscolhido.getBanda() + banda;
+					acessos.put(typeFile, new Acesso(simpleIp[1], data, access[1], typeFile, totalBandwidth));
+					
+				}else if(string.contains(".csv")){
+					typeFile = "csv";
+					acessoEscolhido = acessos.get(typeFile);
+					int banda = Integer.parseInt(getBandwidth[4]);
+					totalBandwidth = acessoEscolhido.getBanda() + banda;
+					acessos.put(typeFile, new Acesso(simpleIp[1], data, access[1], typeFile, totalBandwidth));
+					
+				}else if(string.contains(".png")){
+					typeFile = "png";
+					acessoEscolhido = acessos.get(typeFile);
+					int banda = Integer.parseInt(getBandwidth[4]);
+					totalBandwidth = acessoEscolhido.getBanda() + banda;
+					acessos.put(typeFile, new Acesso(simpleIp[1], data, access[1], typeFile, totalBandwidth));
+					
+				}else if(string.contains(".jpg")){
+					typeFile = "jpg";
+					acessoEscolhido = acessos.get(typeFile);
+					int banda = Integer.parseInt(getBandwidth[4]);
+					totalBandwidth = acessoEscolhido.getBanda() + banda;
+					acessos.put(typeFile, new Acesso(simpleIp[1], data, access[1], typeFile, totalBandwidth));
+					
+				}else if(string.contains(".gif")){
+					typeFile = "gif";
+					acessoEscolhido = acessos.get(typeFile);
+					int banda = Integer.parseInt(getBandwidth[4]);
+					totalBandwidth = acessoEscolhido.getBanda() + banda;
+					acessos.put(typeFile, new Acesso(simpleIp[1], data, access[1], typeFile, totalBandwidth));
+					
+				}else if(string.contains(".css")){
+					typeFile = "css";
+					acessoEscolhido = acessos.get(typeFile);
+					int banda = Integer.parseInt(getBandwidth[4]);
+					totalBandwidth = acessoEscolhido.getBanda() + banda;
+					acessos.put(typeFile, new Acesso(simpleIp[1], data, access[1], typeFile, totalBandwidth));
+					
+				}else if(string.contains(".js")){
+					typeFile = "js";
+					acessoEscolhido = acessos.get(typeFile);
+					int banda = Integer.parseInt(getBandwidth[4]);
+					totalBandwidth = acessoEscolhido.getBanda() + banda;
+					acessos.put(typeFile, new Acesso(simpleIp[1], data, access[1], typeFile, totalBandwidth));
+					
+				}else if(string.contains(".i")){
+					typeFile = "i";
+					acessoEscolhido = acessos.get(typeFile);
+					int banda = Integer.parseInt(getBandwidth[4]);
+					totalBandwidth = acessoEscolhido.getBanda() + banda;
+					acessos.put(typeFile, new Acesso(simpleIp[1], data, access[1], typeFile, totalBandwidth));
+					
 				}
-				
 			}
+				
+				for (Entry<String, Acesso> mapaAcessos : acessos.entrySet()) {
+					typeFile = mapaAcessos.getKey();
+					System.out.println(mapaAcessos.getKey() + " / " + mapaAcessos.getValue().getIpAccess());
+				}
+			
+			
+			
 		}
-		
 	}
 }
+
