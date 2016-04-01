@@ -2,6 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="libs/commons-lang3-3.4.jar"/>
+=======
+>>>>>>> ed8c04f9639fe86c3ffe9fd95a59adf4343da43b
 	<classpathentry kind="output" path="bin"/>
 </classpath>
